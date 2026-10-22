@@ -26,7 +26,8 @@ export default function Home() {
         {/* 3: Start Quiz Button (Above stats) */}
         <div className="animate-button-reveal mt-8 sm:mt-10 flex justify-center">
           <Link
-            to="/team"
+            to="/register"
+            state={{ requireRegistration: true }}
             className="group inline-flex items-center justify-center gap-2 rounded-xl px-8 py-3.5 text-base sm:text-lg font-bold text-[#0A0A0A] bg-[#FDBA74] hover:bg-[#FED7AA] active:bg-[#FB923C] shadow-md shadow-[#FDBA74]/15 hover:shadow-[0_0_28px_rgba(253,186,116,0.35)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FDBA74] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
           >
             <span>Start Quiz</span>

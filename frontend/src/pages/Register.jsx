@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PageShell from '../components/PageShell';
 import { api } from '../api/client';
 import { useTeam } from '../context/TeamContext';
 
 export default function Register() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { team, loginTeam } = useTeam();
   const [collegeName, setCollegeName] = useState('');
   const [member1Name, setMember1Name] = useState('');
@@ -14,8 +15,10 @@ export default function Register() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    if (team) navigate('/briefing', { replace: true });
-  }, [team, navigate]);
+    if (team && !location.state?.requireRegistration) {
+      navigate('/briefing', { replace: true });
+    }
+  }, [team, navigate, location.state]);
 
   const submit = async (event) => {
     event.preventDefault();
