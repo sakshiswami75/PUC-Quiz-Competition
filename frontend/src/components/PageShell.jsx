@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
+import CollegeBranding from './CollegeBranding';
 
 // Shared top bar for public/marketing pages
 export default function PageShell({ children, footer = true }) {
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-5 sm:px-6 sm:py-6 overflow-x-hidden">
-      <header className="flex items-center justify-between gap-3">
-        <Link to="/">
-          <Logo />
+    <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col overflow-x-hidden px-4 pb-3 pt-5 sm:px-6 sm:pb-4 sm:pt-6">
+      <header className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-3">
+        <Link to="/" className="col-start-2 min-w-0">
+          <CollegeBranding />
         </Link>
-        <nav className="flex items-center gap-2">
-          <Link to="/team" className="btn-ghost text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2">Participants</Link>
+        <nav className="col-start-3 justify-self-end">
+          <Link to="/team" className="btn-ghost px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm">Participants</Link>
         </nav>
       </header>
 
-      <main className="flex-1 py-8 sm:py-12">{children}</main>
+      <main className="flex-1 pb-8 pt-3 sm:pb-12 sm:pt-5">{children}</main>
 
       {footer && (
         <footer className="border-t border-[#333333] py-6 text-center text-xs text-[#A3A3A3]">
